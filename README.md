@@ -24,6 +24,28 @@ It uses:
 
 ---
 
+## About the Site
+
+Here's a brief rundown: https://googleyasheck.com/flash-cards-site-complete/
+
+## Screenshots
+
+UI for listing cards. From here you can add and edit cards.
+
+![Card UI](screenshots/cards_ui-1467754141259.png)
+
+---
+
+The front of a General flash card.
+
+![Memorizing general knowledge](screenshots/memorize_ui-1467754306971.png)
+
+---
+
+The reverse (answer side) of a Code flash card.
+
+![Code view](screenshots/memorize_code-1467754962142.png)
+
 ## Important Note
 
 The set included in this project (**cards-jwasham.db**) is not my full set, and is way too big already.
@@ -65,9 +87,26 @@ Thanks [@eyedol](https://github.com/eyedol)
 1. When you're ready to start memorizing, click either "General" or "Code"
     in the top menu.
 
+## How to run it on local host (Quick Guide)
+
+*Provided by [@devyash](https://github.com/devyash) - devyashsanghai@gmail.com - Reach out to this contributor if you have trouble.*
+
+1. Install dependencies:
+  1. Install [Python ](https://www.python.org/download/releases/2.7/)
+  2. Add python as environment variable [windows](http://stackoverflow.com/questions/3701646/how-to-add-to-the-pythonpath-in-windows-7)
+  3. To install pip, securely download [get-pip.py](https://bootstrap.pypa.io/get-pip.py)
+  4. Run ```python get-pip.py```in terminal
+  5. Run ``` pip install -r requirements.txt``` in terminal after going to correct folder
+2. Open flash_cards.py and uncomment the line 52-55 beginning from ``` @app.route('/initdb')```
+3. Type ```python flash_cards.py``` 
+
+4. Login using id:USERNAME='admin', PASSWORD='default. Open localhost:5000/initdb
+
+Every time you wish to run your db just open folder in terminal and run  ```python flash_cards.py```
+
 ## How to run with Docker
 
-*Provided by [@Tinpee](https://github.com/tinpee) - tinpee.dev@gmail.com*
+*Provided by [@Tinpee](https://github.com/tinpee) - tinpee.dev@gmail.com - Reach out to this contributor if you have trouble.*
 
 __Make sure you already installed [docker](https://www.docker.com)__
 
@@ -80,11 +119,13 @@ __Make sure you already installed [docker](https://www.docker.com)__
 
 __If you already had a backup file `cards.db`. Run following command:__
 *Note: We don't need to rebuild image, just delete old container if you already built.*
-`docker run -d -p 8000:8000 --name cs-flash-cards -v :<path_to_folder_contains_cards_db>:/src/db cs-flash-cards`.
+`docker run -d -p 8000:8000 --name cs-flash-cards -v <path_to_folder_contains_cards_db>:/src/db cs-flash-cards`.
 `<path_to_folder_contains_cards_db>`: is the full path contains `cards.db`.
 Example: `/home/tinpee/cs-flash-cards/db`, and `cards.db` is inside this folder.
 
 For convenience, if you don't have `cards.db`, this container will auto copy a new one from `cards-empty.db`.
+
+---
 
 ### How to backup data ?
 We just need store `cards.db` file, and don't need any sql command.
@@ -97,4 +138,11 @@ We just need store `cards.db` file, and don't need any sql command.
 `docker run -d -p 8000:8000 --name cs-flash-cards -v <path_to_folder_contains_cards_db>:/src/db cs-flash-cards`
 - Voila :)
 
+## Alternative for Node fans
+
+[@ashwanikumar04](https://github.com/ashwanikumar04) put together an alternative flash cards site running Node: https://github.com/ashwanikumar04/flash-cards
+
+Check out the demo!
+
 *Happy learning!*
+
